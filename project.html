@@ -1,0 +1,57 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Virtual Comic Store</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
+    <script src="js/Comics.js"></script>
+    <script src="js/CursorEvents.js"></script>
+    <script src="js/infoBanner.js"></script>
+
+  </head>
+  <body>
+    <a-scene id="main-scene">
+      <a-sky id="main-container" radius="5000" color="#90caf9"></a-sky>
+
+      <!--Comicss Container-->
+      <a-entity id="comics-container" cursor-listener store></a-entity>
+
+      <!--CAMERA-->
+      <a-camera id="camera" wasd-controls="enabled:true">
+        <!--App Title-->
+        <a-entity
+          id="app-title"
+          position="0 0.76 -1"
+          text="font: exo2bold; align: center; width: 2; color: #000; value: Virtual Comics Store !">
+          <a-entity
+            id="app-subtitle"
+            position="0 -0.1 0"
+            text="font: dejavu; align: center; width: 1; color: #0F184E; value: Get your favourite comics">
+        </a-entity>
+        </a-entity>
+
+        <!--CURSOR-->
+        <a-entity
+          id="camera-cursor"
+          cursor
+          position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: #fff; shader: flat">
+        </a-entity>
+      </a-camera>
+        
+        <!--Fade Background-->
+        <a-entity
+          id="fadeBackground"
+          geometry="primitive: sphere; radius: 2.5"
+          material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6"
+          visible="false"
+          cursor-listener>
+        </a-entity>
+          
+      <!--Plane-->
+      <a-plane width="250" height="1000" position="0 -40 0" rotation="-90 -90 0" color="grey"></a-plane>
+    </a-scene>
+  </body>
+</html>
